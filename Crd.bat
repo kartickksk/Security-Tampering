@@ -1,2 +1,2 @@
 @echo off
-cph.exe adikhanofficial@gmail.com
+cph.exe test@gmail.com

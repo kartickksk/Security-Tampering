@@ -1,44 +1,104 @@
-# Docker Getting Started Tutorial
+# Sentence scoring using NLTK bleu score
 
-This tutorial was written with the intent of helping folks get up and running
-with containers and is designed to work with Docker Desktop. While not going too much 
-into depth, it covers the following topics:
+A Python based NLP package for generating the best matching text from a paragraph for a given keyword/sentence.
+A user can pass a keyword and a paragraph/text content throught the terminal and the paragraph undergoes cleaning process by eliminating special characters from the text,
+then preprocessing technique is applied to each sentences by removing stopwords and tokenizing it. 
 
-- Running your first container
-- Building containers
-- Learning what containers are
-- Running and removing containers
-- Using volumes to persist data
-- Using bind mounts to support development
-- Using container networking to support multi-container applications
-- Using Docker Compose to simplify the definition and sharing of applications
-- Using image layer caching to speed up builds and reduce push/pull size
-- Using multi-stage builds to separate build-time and runtime dependencies
+The sentence score is calculated by applying bleu_score. Here a cumulative bleu score is calculated for the each sentences.The code helps in calculatuing the score of each sentences with reference to the input keyword and top scored 3 sentences are displayed as output.
 
-## Getting Started
+Regex used for removing special characters from text.<br/>
+NLTK stopwords for removing stopwords from sentence.<br/>
+NLTK word_tokenize used for tokenization of sentence.<br/>
+NLTK WordNetLemmatizer used for lemmatization of words.<br/>
+NLTK sentence_bleu used for sentence scoring.<br/>
 
-If you wish to run the tutorial, you can use the following command after installing Docker Desktop:
 
-```bash
-docker run -d -p 80:80 docker/getting-started
+## Table of contents
+
+- [Getting started](#getting-started)
+- [Features](#features)
+- [Usage](#usage)
+- [Want to Contribute?](#want-to-contribute)
+- [Need Help / Support?](#need-help)
+- [Collection of Other Components](#collection-of-components)
+- [Changelog](#changelog)
+- [Credits](#credits)
+- [License](#license)
+- [Keywords](#Keywords)
+
+## Getting started
+
+Prerequisites for running the code are:
+
+Python = 3.6.8
+
+nltk = 3.6.7
+
+or
+```
+pip install nltk
 ```
 
-Once it has started, you can open your browser to [http://localhost](http://localhost).
+We have tested our program in above version, however you can use it in other versions as well.
 
-## Development
+## Features
 
-This project has a `docker-compose.yml` file, which will start the mkdocs application on your
-local machine and help you see changes instantly.
+- Performs text cleaning
+- Uses nltk's sentence_bleu score for text scoring. 
 
-```bash
-docker compose up
+## Usage
+
+Inside the project's directory run:
+
 ```
+python app.py
+```
+Enter keyword and a paragraph.
+It will display sentences with most relavent text to the keyword entered.
 
-## Contributing
 
-If you find typos or other issues with the tutorial, feel free to create a PR and suggest fixes!
+<img src="images/input_keyword_paragraph.png" width = "100%"/>
 
-If you have ideas on how to make the tutorial better or want to suggest adding new content, please open an 
-issue first before working on your idea. While we love input, we want to keep the tutorial scoped to new-comers.
-As such, we may reject ideas for more advanced requests and don't want you to lose any work you might
-have done. So, ask first and we'll gladly hear your thoughts!
+Output:
+
+<img src="images/output_top_scored_sentences.png" width = "100%"/>
+
+## Want to Contribute?
+
+- Created something awesome, made this code better, added some functionality, or whatever (this is the hardest part).
+- [Fork it](http://help.github.com/forking/).
+- Create new branch to contribute your changes.
+- Commit all your changes to your branch.
+- Submit a [pull request](http://help.github.com/pull-requests/).
+
+-----
+
+## Need Help? 
+
+We also provide a free, basic support for all users who want to use this AI ML based NLP text scoring technique for their projects. In case you want to customize this text scoring technique for your development needs, then feel free to contact our [AI ML developers](https://www.weblineindia.com/ai-ml-dl-development.html).
+
+-----
+
+## Collection of Components
+
+We have built many other components and free resources for software development in various programming languages. Kindly click here to view our [Free Resources for Software Development](https://www.weblineindia.com/software-development-resources.html).
+
+------
+
+## Changelog
+
+Detailed changes for each release are documented in [CHANGELOG.md](./CHANGELOG.md).
+
+## Credits
+
+Refered NLTK bleu score for evaluating sentence match.  [NLTK](http://www.nltk.org/_modules/nltk/translate/bleu_score.html).
+
+## License
+
+[MIT](LICENSE)
+
+[mit]: https://github.com/miguelmota/is-valid-domain/blob/e48e90f3ecd55431bbdba950eea013c2072d2fac/LICENSE
+
+## Keywords
+
+ nlp, nltk, sentence-bleu, text-scoring, keyword-match, similar-sentence, keyword-match-text, sent-tokenize, artificial-intelligence, machine-learning, ai-ml,tokenization, stopwords removal
